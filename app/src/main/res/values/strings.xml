@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MySnils</string>
+    <string name="error_invalid_check_sum">Неверная конотрольная сумма</string>
+    <string name="error_only_digits">Поле принимает только цифры</string>
+    <string name="error_invalid_length">Неверное количество символов</string>
+    <string name="valid_input">Верный номер СНИЛС</string>
+    <string name="error_enter_snils">Введите номер СНИЛС</string>
+</resources>
