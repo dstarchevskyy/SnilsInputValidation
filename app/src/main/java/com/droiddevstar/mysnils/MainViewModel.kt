@@ -1,6 +1,7 @@
 package com.droiddevstar.mysnils
 
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.ViewModel
 import com.droiddevstar.mysnils.snils.filter.ComplexFilter
 import com.droiddevstar.mysnils.snils.filter.FilterMaxLength
@@ -33,6 +34,9 @@ class MainViewModel : ViewModel() {
     }
 
     fun onValueChange(textFieldValue: TextFieldValue)  {
+        if (!textFieldValue.text.isDigitsOnly()) return
+        if (textFieldValue.text.length > 11) return
+
         val filteredText: String = snilsFilter.filter(textFieldValue.text)
         val validationResult = snilsValidator.validate(filteredText)
 
