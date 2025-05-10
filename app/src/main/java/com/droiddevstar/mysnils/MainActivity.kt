@@ -46,9 +46,7 @@ class MainActivity : ComponentActivity() {
             SnilsInputField(
                 state = uiState,
                 onValueChange = { textFieldValue: TextFieldValue ->
-                    if (textFieldValue.text.length <= 11) {
-                        viewModel.onValueChange(textFieldValue)
-                    }
+                    viewModel.onValueChange(textFieldValue)
                 },
                 modifier = modifier.padding(30.dp),
                 label = {

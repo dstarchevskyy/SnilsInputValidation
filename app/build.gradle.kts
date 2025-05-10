@@ -37,6 +37,11 @@ android {
     buildFeatures {
         compose = true
     }
+    testOptions {
+        unitTests.all {
+            it.useJUnitPlatform()
+        }
+    }
 }
 
 dependencies {
@@ -57,18 +62,21 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // Kotest
-    testImplementation("io.kotest:kotest-runner-junit5:5.8.0")
-    testImplementation("io.kotest:kotest-assertions-core:5.8.0")
-    testImplementation("io.kotest:kotest-property:5.8.0")
 
-    // For FunSpec style
-    testImplementation("io.kotest:kotest-framework-api:5.8.0")
+
+    // Kotest
+
+    testImplementation(libs.kotlin.test)
+    testImplementation(libs.kotest.runner)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.kotest.framework.datatest)
 
     debugImplementation("com.willowtreeapps.hyperion:hyperion-core:0.9.38")
 
-//    debugImplementation("com.github.takahirom.hyperion:hyperion-attr:0.9.38") // Attributes plugin
     debugImplementation("com.willowtreeapps.hyperion:hyperion-measurement:0.9.38") // Measurement
 
-//    debugImplementation 'com.willowtreeapps.hyperion:hyperion-core:0.9.38'
+}
+
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
 }
